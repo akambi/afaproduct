@@ -1,5 +1,6 @@
-Lieu Idéal
+Product
 ==========
+Bundle de gestion de multi-sites
 
 Lieu Idéal utilise le framework Symfony 2 (Symfony Standard Edition).
 
@@ -255,3 +256,5 @@ Enjoy!
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
 [16]: http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_bundle.html
+
+
