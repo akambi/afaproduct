@@ -1,0 +1,20 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: lieuideal.yml }
+    - { resource: lieuideal.form.parameters.yml }
+# Assetic Configuration
+assetic:
+    assets:
+        iledefrance:
+            inputs:
+                - %kernel.root_dir%/../custom/Iledefrance/Resources/public/css/screen.css
+#            filters:
+#                - yui_css
+# Twig Configuration
+twig:
+    form:
+        resources:
+            - 'CanalTPLieuIdealProductBundle:Form:fields.html.twig'
+            - 'CanalTPLieuIdealCoreBundle:Form:fields.html.twig'
+    paths:
+      - %kernel.root_dir%/../custom/Iledefrance/Resources/views

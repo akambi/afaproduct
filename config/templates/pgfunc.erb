@@ -1,0 +1,81 @@
+CREATE OR REPLACE FUNCTION insert_or_update_date_on_stop_area()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	nbStopArea INTEGER;
+BEGIN
+	SELECT COUNT(*) INTO nbStopArea FROM stop_area WHERE external_code = NEW.external_code;
+	IF (nbStopArea > 0) THEN
+		--il existe deja, on update la date
+		UPDATE stop_area SET external_code = NEW.external_code, coord_x = NEW.coord_x,
+            coord_y = NEW.coord_y, coord_google = NEW.coord_google, name = NEW.name,
+			last_update_date = NOW()
+		WHERE external_code = NEW.external_code;
+		--et on annule l'insert
+		RETURN NULL;
+	END IF;
+
+	NEW.last_update_date = NOW();
+	RETURN NEW;
+END;
+$BODY$ LANGUAGE plpgsql VOLATILE;
+ALTER FUNCTION insert_or_update_date_on_stop_area()
+  OWNER TO <%= db_username %>;
+
+--Trigger pour la mise a jour de la table stop_area
+CREATE TRIGGER insert_stop_area BEFORE INSERT ON stop_area
+FOR EACH ROW
+EXECUTE PROCEDURE insert_or_update_date_on_stop_area();
+
+
+
+--Fonction lancée par le trigger précédent
+CREATE OR REPLACE FUNCTION insert_or_update_date_on_line() RETURNS TRIGGER AS $$
+DECLARE
+	nbLine INTEGER;
+BEGIN
+	SELECT COUNT(*) INTO nbLine FROM line WHERE code = NEW.code;
+	IF (nbLine > 0) THEN
+		--il existe deja, on update la date
+		UPDATE line SET last_update_date = NOW() WHERE code = NEW.code;
+		--et on annule l'insert
+		RETURN NULL;
+	END IF;
+
+	NEW.last_update_date = NOW();
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+ALTER FUNCTION insert_or_update_date_on_line()
+  OWNER TO <%= db_username %>;
+
+--Trigger pour la mise a jour de la table line
+CREATE TRIGGER insert_line BEFORE INSERT ON line
+FOR EACH ROW
+EXECUTE PROCEDURE insert_or_update_date_on_line();
+
+
+
+--Fonction lancée par le trigger précédent
+CREATE OR REPLACE FUNCTION insert_or_update_date_on_correspondence() RETURNS TRIGGER AS $$
+DECLARE
+	nbCorrespondence INTEGER;
+BEGIN
+	SELECT COUNT(*) INTO nbCorrespondence FROM correspondence WHERE line_code = NEW.line_code AND stop_area_external_code = NEW.stop_area_external_code;
+	IF (nbCorrespondence > 0) THEN
+		--il existe deja, on update la date
+		--UPDATE line SET last_update_date = NOW() WHERE code = NEW.code;
+		--et on annule l'insert
+		RETURN NULL;
+	END IF;
+
+	--NEW.last_update_date = NOW();
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+ALTER FUNCTION insert_or_update_date_on_correspondence()
+  OWNER TO <%= db_username %>;
+
+CREATE TRIGGER insert_correspondence BEFORE INSERT ON correspondence
+FOR EACH ROW
+EXECUTE PROCEDURE insert_or_update_date_on_correspondence();

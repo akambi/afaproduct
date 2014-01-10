@@ -1,0 +1,29 @@
+<VirtualHost *:80>
+    ServerAdmin <%= admin_email %>
+    ServerName <%= brdx_servername %>
+    ServerSignature Off
+
+    DirectoryIndex app.php
+
+    SetEnv SYMFONY__ACCESSKEY <%= brdx_client_folder %>
+
+    DocumentRoot "<%= File.join(current_path, 'web') %>"
+
+    <Directory "<%= File.join(current_path, 'web') %>">
+        AllowOverride All
+	Allow from All
+
+        RewriteEngine On
+        RewriteRule !\.(css|less|jst?|ico|png|jpg|jpeg|gif|xml|xsl|swf|htm|php|svg|ttf|woff|eot)$ app<%= "_dev" unless stage.to_s != "development" %>.php
+        RewriteRule ^javascript/(.*\.jst?)$ javascript/$1 [L,NC]
+        RewriteRule ^images/(.*\.(ico|jpe?g|png|gif))$ images/$1 [L,NC]
+        RewriteRule ^css/(.*\.css|less)$ css/$1 [L,NC]
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/li-product-<%= brdx_client_folder %>-error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/li-product-<%= brdx_client_folder %>-access.log combined
+
+
+    AddDefaultCharset utf-8
+</VirtualHost>

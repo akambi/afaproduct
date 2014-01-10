@@ -1,0 +1,57 @@
+parameters:
+    form_address:
+        name:
+            type: text
+            options:
+                attr:
+                    class: span2
+                    placeholder: enter_a_name
+                translation_domain: core
+        address:
+            type: text
+            options:
+                attr:
+                    class: address-ac span4
+                    placeholder: enter_an_address_or_a_stop
+                translation_domain: core
+        entrypoint:
+            type: hidden
+            options:
+                attr:
+                    class: entrypoint
+        arrivalTime:
+            type: time
+            options:
+                input: string
+                widget: choice
+                minutes: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                attr:
+                    class: arrivalTime
+        maxTime:
+            type: slider
+            options:
+                choices:
+                    900: 15 mins
+                    1800: 30 mins
+                    2700: 45 mins
+                    3600: 1 h
+                expanded: false
+        transportMode:
+            type: choice
+            options:
+                choices:
+                    bus: transport_mode_bus
+                    rapidtransit: transport_mode_train
+                    metro: transport_mode_subway
+#                    tramway: transport_mode_tram
+                multiple: true,
+                expanded: true,
+                translation_domain: core
+        criteria:
+            type: choice
+            options:
+                choices:
+                    1: journey_type_fastest
+#                    2: journey_type_less_correspondence
+                    3: journey_type_no_walk
+                translation_domain: core

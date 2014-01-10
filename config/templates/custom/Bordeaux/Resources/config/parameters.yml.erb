@@ -1,0 +1,17 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: <%= brdx_db_hostname %>
+    database_port: null
+    database_name: <%= brdx_db_database %>
+    database_user: <%= brdx_db_username %>
+    database_password: <%= brdx_db_password %>
+    mailer_transport: smtp
+    mailer_host: <%= brdx_mail_hostname %>
+    mailer_user: <%= brdx_mail_username %>
+    mailer_password: <%= brdx_mail_password %>
+    locale: fr
+    secret: 86715b2e4bcb5a9c636e3973b7763d78
+    <% if brdx_memcache_hostname && brdx_memcache_port %>
+    memcached.servers:
+        - { host: <%= brdx_memcache_hostname %>, port:<%= brdx_memcache_port %> }
+    <% end %>

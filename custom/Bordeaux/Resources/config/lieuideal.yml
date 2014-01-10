@@ -1,0 +1,40 @@
+webservices:
+    navitia: 'http://bordeaux.prod.navitia.com/cgi-bin/gwnavitia.dll'
+    enable_logs: true
+autocomplete: ~
+isochron:
+#  Nombre de points maximum affichés (stoparea)
+    max_points: 2300
+#    Nombre de zones
+    nbre_areas: 3
+    ideal_minutes_adjustment: 10
+#    Temps de trajet maximum pour la dernière zone
+    max_duration: 3600
+#    Temps maximum d'une zone
+    max_areas_duration: 1800
+#    Active/désactive le module isochron
+    active: true
+bestpoint:
+#  Nombre de points maximum affichés (stoparea)
+    max_points: 2300
+#    Active/désactive le module bestpoint
+    active: true
+#   Nombre de points idéal pour une rencontre
+    nbre_points : 3
+gMap:
+    zoom: 11
+    center:
+        lat:  44.844916
+        lon:  -0.578556
+email:
+    sender:   thomas.chevily@canaltp.fr
+    receiver: thomas.chevily@canaltp.fr
+    hostname: localhost
+layout:
+    header:
+        active: true
+    footer:
+        active: true
+    navigation:
+        feedback:
+            active: true

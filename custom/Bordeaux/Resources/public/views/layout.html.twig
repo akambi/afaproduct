@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{% block title %}{% trans %}head_title{% endtrans %}{% endblock %}</title>
+    <meta name="description" content="{% trans %}head_description{% endtrans %}" />
+    <meta name="keywords" content="{% trans %}head_keywords{% endtrans %}" />
+    <link rel="icon" type="image/x-icon" href="http://{{ app.request.host }}{{ asset('favicon.ico') }}" />
+    {% if like is defined %}
+        {{ opengraph(like) }}
+    {% endif %}
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    {% block stylesheets %}
+        {% stylesheets
+            '@CanalTPLieuIdealCoreBundle/Resources/public/css/bootstrap.min.css'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/css/bootstrap-responsive.min.css'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/css/autocomplete.css'
+            '@CanalTPProductBundle/Resources/public/css/slider-range.css'
+            '@CanalTPProductBundle/Resources/public/css/main.css'
+        %}
+        <link rel="stylesheet" href="http://{{ app.request.host }}{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+</head>
+
+{% if page_type is defined %}
+<body class="{{ page_type }}">
+{% else %}
+<body>
+{% endif %}
+<div class="container">
+    <div class="row-fluid">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="{{ path('home') }}">{% trans from "core"%}product_name{% endtrans %}</a>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                      {% if isochronIsActive() %}
+                          <li{% if 'isochron' in app.request.attributes.get("_route") %} class="active"{% endif %}><a href="{{ path('canaltp_lieuidealcore_isochron_index') }}">{% trans from "core"%}where_to_live{% endtrans %}</a></li>
+                      {% endif %}
+
+                      {% if bestpointIsActive() %}
+                      <li{% if 'bestpoint' in app.request.attributes.get("_route") %} class="active"{% endif %}><a href="{{ path('canaltp_lieuidealcore_bestpoint_index') }}" >{% trans from "core"%}where_to_meet{% endtrans %}</a></li>
+                      {% endif %}
+
+                      <li><a href="#avis" class="mail" data-internal="true" data-title="{% trans from "core"%}product_name{% endtrans %} - {% trans %}your_opinion{% endtrans %}" data-message="{% trans %}give_your_opinion{% endtrans %} ...">{% trans %}your_opinion{% endtrans %}</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        {% block header %}
+        <div class="page-header">
+            <div class="row-fluid">
+                <div class="span10">
+                    <h1>{% block pageTitle %}{% trans %}head_title{% endtrans %}{% endblock %}</h1>
+                </div>
+                <div class="span2 text-right">
+                    {% if app.request.get('_format')!='pdf' and app.request.get('_format')!='print' %}
+                    <span>{% trans %}share{% endtrans %} :</span>
+                    <a href="http://www.facebook.com/sharer.php?u=http://{{ app.request.host }}{{ path('home') }}" >
+                        <img src="/bundles/canaltplieuidealproduct/images/common/facebook.png" alt="facebook"/>
+                    </a>
+                    <a href="https://twitter.com/share?url=http://{{ app.request.host }}{{ path('home') }}&amp;text=Avec%20Lieu%20Idéal%20de%20SNCF%20Transilien%20trouvez%20les%20meilleurs%20lieux%20de%20rendez-vous%20ou%20de%20logement%20en%20Ile%20de%20France." >
+                        <img src="/bundles/canaltplieuidealproduct/images/common/twitter.png" alt="twitter"/>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+    <div class="row-fluid">
+        {% block body %} {% endblock %}
+    </div>
+
+    <div class="row-fluid">
+        {% block footer %} {% endblock %}
+    </div>
+</div>
+{% block javascripts %}
+    {% javascripts '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/head.js' %}
+        <script type="text/javascript" src="http://{{ app.request.host }}{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+
+    head.js(
+        {% javascripts
+
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/jquery-1.7.2.min.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/underscore.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/backbone.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/app.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/geojson.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/main.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/slider.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/transilien.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/bootstrap.min.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/vendor/jquery-ui-1.8.22.custom.min.js'
+            '@CanalTPLieuIdealCoreBundle/Resources/public/js/datepicker.js'
+        %}
+            'http://{{ app.request.host }}{{ asset_url }}',
+        {% endjavascripts %}
+        {% if method is not defined or method == '' %}
+            {% javascripts'@CanalTPLieuIdealCoreBundle/Resources/public/js/pages.js' %}
+                'http://{{ app.request.host }}{{ asset_url }}',
+            {% endjavascripts %}
+        {% else %}
+            {% javascripts'@CanalTPLieuIdealCoreBundle/Resources/public/js/print.js' %}
+                'http://{{ app.request.host }}{{ asset_url }}',
+            {% endjavascripts %}
+        {% endif %}
+        'http://{{ app.request.host }}{{ asset('bundles/fosjsrouting/js/router.js') }}',
+        '{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}'
+    );
+    </script>
+    {#
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36691916-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    #}
+{% endblock %}
+
+{% block subjavascripts %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+# behat.yml
+default:
+  formatter:
+    name: pretty
+    parameters:
+      output_path: null
+  extensions:
+    Behat\Symfony2Extension\Extension: ~
+ci:
+  formatter:
+    name: junit.xml
+    parameters:
+      output_path: build/junit.xml
+  extensions:
+    Behat\Symfony2Extension\Extension: ~

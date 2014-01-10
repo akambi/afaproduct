@@ -1,0 +1,115 @@
+isochronsearch_not_enough_addresses: 'Vous devez indiquer au moins une adresse valide'
+bestpointsearch_not_enough_addresses: 'Vous devez indiquer au moins deux adresses valides'
+name_without_address: 'Vous avez saisi un nom sans adresse'
+form_invalid_entrypoint: 'Veuillez selectionner une adresse dans la liste de propositions'
+form_invalid_address: 'Cette adresse est invalide'
+form_invalid_name: 'Le nom est invalide'
+name: nom
+from: de
+to: à
+
+head_title:       Lieu Idéal pour la région Île de France
+head_description: Recherchez les meilleurs points de rencontre et simplifiez vos déplacements grâce au service Lieu Idéal de Transilien
+head_keywords:    meilleurs points de rencontre, ou habiter, ou se retrouver, Transilien, Lieu Idéal, simplifiez vos déplacements
+
+nav_page_main:    Menu principal
+nav_page_content: Contenu
+nav_page_footer:  Bas de page
+nav_page_home:    Accueil
+results:          Résultats
+save:             Enregistrer
+address:          Adresse
+person:           Personnne
+example:          exemple
+hello:            Bonjour
+firstname:        Prénom
+lastname:         Nom
+email:            Email
+message:          Message
+criterias:        Critères
+journey:          Itinéraire
+journeys:         Itinéraires
+hours:            Heures
+minutes:          Minutes
+secondes:         Secondes
+hours_abbr:       h
+minutes_abbr:     min
+secondes_abbr:    sec
+
+your_opinion:                   Votre avis
+give_your_opinion:              Donnez votre avis
+share:                          Partager
+headband_head:                  Trouvez le lieu idéal simplement dans la région Île de France
+headband_desc:                  Recherchez les meilleurs points de rencontre et simplifiez vos déplacements grâce AU SERVICE lieu idéal
+error_fields_are_marked_in_red: Les champs en erreur sont marqués en rouge
+error_fields_are_marked_with_an_icon: Les champs en erreur sont marqués d’un pictogramme
+find_best_places_to_meet_your_friends: Trouvez les meilleurs points de rencontre pour rejoindre vos amis
+here_some_possible_meeting_points: Voici quelques points de rendez-vous possible
+best_places_to_meet_your_friends: Le meilleur point de rencontre avec vos amis
+indicate_departure_place_for_each_person: Indiquez le lieu de départ de chaque personne
+
+name_required:                  Nom *
+date_required:                  Date *
+departure_address_required:     Adresse de départ *
+hour_required:                  Heure*
+date_and_hour:                  Date et Heure
+enter_meeting_date_and_hour:    Indiquez la date et l’heure à laquel vous voulez vous retrouver
+calendar:                       Calendrier
+find:                           Rechercher
+mandatory_field:                champ obligatoire
+your_informations:              Vos informations
+departure_address:              Adresse de départ
+journey_max_duration:           Durée maximun du trajet
+the_options:                    Les options
+journey_type:                   Type de trajet
+edit_search:                    Modifier la recherche
+search_result:                  Résultat de la recherche
+submit:                         Valider
+how_it_works:                   Comment ça marche
+find_yourself:                  Retrouvez-vous
+send_by_email:                  Envoyer par mail
+indicate_name_departure_address_date_and_time_for_each_person: Indiquez pour chaque personne un nom, une adresse de départ, une date et une heure de rendez vous.
+click_search_button_to_find_best_meeting_points: Cliquez sur " Rechercher " et trouvez les meilleur points de rencontre
+rollover_and_click_transport_to_get_journey_detail: Survolez et cliquez sur les arrêts de métro, train, tramway pour obtenir le détail de votre itinéraire
+summary_of_addresses_used_for_searching : Rappel des adresses utilisées pour la recherche
+we_are_looking_for_ideal_meeting_place : Nous recherchons votre lieu de rendez-vous idéal
+
+find_the_best_residential_area_for_your_next_accomodation: Trouvez la meilleure zone d’habitation pour votre prochain logement en fonction de vos temps de trajet quotidien
+arrival_at:                   Arrivée à
+arrival_address:              Adresse d'arrivée
+as_example_you_can_specify:   Par exemple, vous pouvez indiquer
+your_work_address:            L'adresse de votre lieu de travail
+your_spouse_address:          L'adresse de celui de votre conjoint
+your_child_school_address:    L'adresse de l'école de votre enfant
+click_search_button_to_find_best_residential_areas: Cliquez sur "Rechercher" et une carte vous présentera la zone idéale de votre lieu d'habitation en fonction de vos temps de trajet vers ces adresses
+best_accomodation_areas_for_your_search: Les meilleures zones de recherche pour votre logement
+best_accomodation_areas_search_tip: Les meilleures zones de recherche pour votre logement apparaissent en rose. Pour connaître tous les noms des stations de métro et des gares de votre zone idéale, cliquez sur les points. Vous obtiendrez toutes les informations et pourrez accéder au détail de votre futur itinéraire.
+click_subway_stations_for_journey_details_of_each_person : Cliquez sur les stations de métro, gares pour obtenir le détail des itinéraires pour chacune des personnes
+here_some_accessible_tp_areas : Voici les zones accessibles en transport en commun
+best_accomodation_areas_found_tip: "Je viens de calculer mes meilleures zones d'habitation grâce au service Lieu Idéal de Transilien SNCF : http://lieuideal.transilien.com.<br />Cela permet de visualiser les zones accessibles en transports en commun en Île-de-France."
+best_point_found_tip: "Je viens de calculer les meilleurs points de rendez-vous grâce au service Lieu Idéal de Transilien SNCF : http://lieuideal.transilien.com"
+ideal_area:     Zone idéale
+best_area:      Meilleure Zone
+nearby_area:    Zone à proximité
+remote_area:    Zone éloignée
+outside_area:   Zone hors critères
+please_wait:   Veuillez patienter
+we_are_looking_for_ideal_residential_area:   Nous recherchons votre zone d’habitation idéale
+
+shared_mail : Mail de partage
+click_here_to_see_results: Cliquez ici pour visualiser les résultats
+sends_message_to_you_from_site : vous envoie un message depuis le site
+
+isochron_search_form_tip: "Renseignez 2 à 3 adresse des lieux que vous fréquentez régulièrement (travail, crèche, adresse de vos amis...) et indiquez l’heure d’arrivée pour chaque adresse."
+show_best_points_accessibles_by_public_transport: "Visualiser vos meilleures zones d’habitation accessibles en transport en commun pour vous loger"
+find_best_meeting_points_accessibles_by_public_transport: "Trouver les meilleurs points de rendez-vous accessibles en transport en commun pour rejoindre vos amis"
+location_field_placeholder: Saisissez une adresse ou un lieu
+journey_for: Votre itinéraire pour
+journey_from: Votre itinéraire depuis
+arrival_before: arrivée avant
+
+participant_nb_1: 1er participant
+participant_nb_2: 2ème participant
+participant_nb_3: 3ème participant
+
+rendez-vous: Rendez-Vous

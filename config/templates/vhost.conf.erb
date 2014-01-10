@@ -1,0 +1,32 @@
+<VirtualHost *:80>
+    ServerAdmin <%= admin_email %>
+    ServerName <%= servername %>
+
+    DirectoryIndex app.php
+
+    SetEnv SYMFONY__ACCESSKEY toChange
+
+    DocumentRoot "<%= File.join(current_path, 'web') %>"
+
+    <Directory "<%= File.join(current_path, 'web') %>">
+        AllowOverride All
+		Allow from All
+
+        RewriteEngine On
+        RewriteRule !\.(css|less|jst?|ico|png|jpg|jpeg|gif|xml|xsl|swf|htm|php|svg|ttf|woff|eot)$ app<%= "_dev" unless stage.to_s != "development" %>.php
+        RewriteRule ^javascript/(.*\.jst?)$ javascript/$1 [L,NC]
+        RewriteRule ^images/(.*\.(ico|jpe?g|png|gif))$ images/$1 [L,NC]
+        RewriteRule ^css/(.*\.css|less)$ css/$1 [L,NC]
+    </Directory>
+
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    ErrorLog  /var/log/apache2/<%= application %>.<%= stage.to_s %>.error.log
+    CustomLog /var/log/apache2/<%= application %>.<%= stage.to_s %>.access.log combined
+    ServerSignature On
+
+    AddDefaultCharset utf-8
+</VirtualHost>

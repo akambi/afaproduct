@@ -1,0 +1,8 @@
+isochronsearch_not_enough_addresses: Vous n'avez pas saisi assez d'adresses
+name_without_address: Vous avez saisi un nom sans adresse
+form_invalid_entrypoint: Veuillez selectionner une adresse dans la liste de propositions
+form_invalid_address: Cette adresse est invalide
+form_invalid_name: Le nom est invalide
+form_field_too_long: Ce champ contient un caractère de trop de caratères|Ce champ contient trop de caratères
+form_field_too_short: Ce champ ne contient pas suffisamment de caratères (min: 2)|Ce champ ne contient pas suffisamment de caratères (min: 2)
+name: nom

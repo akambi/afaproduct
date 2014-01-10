@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+$sfPath = realpath(dirname(__FILE__) . '/../vendor/symfony/symfony/src');
+
+$includePaths = array(
+    '.',
+    get_include_path(),
+    $sfPath
+);
+
+set_include_path(implode(PATH_SEPARATOR, $includePaths));
+
+include realpath(dirname(__FILE__) . '/../vendor/canaltp/wom/lib/Wom/Console/wom.php');

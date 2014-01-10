@@ -1,0 +1,21 @@
+home:
+  pattern: /
+  defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: canaltp_lieuidealcore_isochron_index
+      permanent: true
+        
+CanalTPLieuIdealCoreBundle:
+    resource: "."
+    type:     extra
+    prefix:   /
+    options:
+        expose: true
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal

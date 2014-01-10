@@ -1,0 +1,15 @@
+.cache
+.settings
+*.swp
+web/bundles/
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+app/config/parameters.yml
+vendor
+composer.phar
+web/js/
+web/css/
+web/tmp/
+web/assetic/*
+/nbproject/

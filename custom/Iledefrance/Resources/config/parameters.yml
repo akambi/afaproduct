@@ -1,0 +1,13 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: localhost
+    database_port: null
+    database_name: li
+    database_user: li
+    database_password: li
+    mailer_transport: smtp
+    mailer_host: localhost
+    locale: fr
+    secret: 86715b2e4bcb5a9c636e3973b7763d24
+    memcached.servers:
+      - { host: 127.0.0.1, port: 11211 }

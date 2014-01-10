@@ -1,0 +1,17 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: <%= idf_db_hostname %>
+    database_port: null
+    database_name: <%= idf_db_database %>
+    database_user: <%= idf_db_username %>
+    database_password: <%= idf_db_password %>
+    mailer_transport: smtp
+    mailer_host: <%= idf_mail_hostname %>
+    mailer_user: <%= idf_mail_username %>
+    mailer_password: <%= idf_mail_password %>
+    locale: fr
+    secret: 86715b2e4bcb5a9c636e3973b7763d78
+    <% if idf_memcache_hostname && idf_memcache_port %>
+    memcached.servers:
+        - { host: <%= idf_memcache_hostname %>, port:<%= idf_memcache_port %> }
+    <% end %>

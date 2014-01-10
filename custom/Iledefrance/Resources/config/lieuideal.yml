@@ -1,0 +1,27 @@
+canal_tp_lieu_ideal_core:
+    webservices:
+        navitia: 'http://iledefrance.prod.navitia.com/cgi-bin/gwnavitia.dll'
+        enable_logs: true
+    autocomplete: ~
+    isochron:
+    #  Nombre de points maximum affichés (stoparea)
+        max_points: 1000
+        ideal_minutes_adjustment: 10
+        max_areas_duration: 5800
+    #    Active/désactive le module isochron
+        active: true
+        nbre_areas: 4
+    bestpoint:
+    #  Nombre de points maximum affichés (stoparea)
+        max_points: 10
+    #    Active/désactive le module Bestpoint
+        active: true
+    gMap:
+        zoom: 11
+        center:
+            lat:  48.860423
+            lon:  2.350674
+    email:
+        sender:   thomas.chevily@canaltp.fr
+        receiver: thomas.chevily@canaltp.fr
+        hostname: localhost

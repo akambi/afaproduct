@@ -1,0 +1,2 @@
+SetEnv application_email app@local
+SetEnv hostname li.work.dev

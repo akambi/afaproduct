@@ -1,0 +1,86 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.1.3",
+        "symfony/event-dispatcher": "2.1.*",
+        "symfony/assetic-bundle": "2.1.*",
+        "symfony/swiftmailer-bundle": "2.1.*",
+        "symfony/monolog-bundle": "2.1.*",
+        "sensio/distribution-bundle": "2.1.*",
+        "sensio/framework-extra-bundle": "2.1.*",
+        "sensio/generator-bundle": "2.1.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.0.*",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "twig/extensions": "1.0.*",
+        "jms/security-extra-bundle": "1.2.*",
+        "jms/di-extra-bundle": "1.1.*",
+        "friendsofsymfony/jsrouting-bundle": "1.0.*",
+        "canaltp/wom": "1.0.1",
+        "behat/symfony2-extension": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-selenium2-driver": "*"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "canaltp/wom",
+                "version": "1.0.1",
+                "source": {
+                    "url" : "http://hg.prod.canaltp.fr/ctp/wom",
+                    "type": "hg",
+                    "reference": "1.0.1"
+                },
+                "autoload": {
+                    "psr-0": { "Wom": "lib/" }
+                },
+                "require": {
+                    "php": ">=5.3.3",
+                    "kriswallsmith/buzz": "0.7.*",
+                    "symfony/console": "2.1.*"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "canaltp/lieu-ideal-core-bundle",
+                "version": "1.0.8",
+                "source": {
+                    "url" : "http://hg.prod.canaltp.fr/ctp/SymfonyBundles/LieuIdealCoreBundle.git",
+                    "type": "git",
+                    "reference": "1.0.8"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "CanalTP\\LieuIdealCoreBundle": ""
+                    }
+                }
+            }
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web"
+    }
+}

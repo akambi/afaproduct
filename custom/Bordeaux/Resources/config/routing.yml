@@ -1,0 +1,39 @@
+canaltp_lieuidealcore_bestpoint:
+  resource: @CanalTPLieuIdealCoreBundle/Resources/config/routing/bestpoint.yml
+  prefix: /ou-manger
+
+canaltp_lieuidealcore_isochron:
+  resource: @CanalTPLieuIdealCoreBundle/Resources/config/routing/isochron.yml
+  prefix: /ou-habiter
+
+canaltp_lieuidealcore_planjourney:
+  resource: @CanalTPLieuIdealCoreBundle/Resources/config/routing/planjourney.yml
+  prefix: /itineraire
+
+canaltp_lieuidealcore_autocompletion:
+  resource: @CanalTPLieuIdealCoreBundle/Resources/config/routing/autocompletion.yml
+  prefix: /autocomplete
+
+canaltp_lieuidealcore_administration:
+  resource: @CanalTPLieuIdealCoreBundle/Resources/config/routing/administration.yml
+  prefix: /administration
+
+home:
+  pattern: /
+  defaults: {_controller: CanalTPLieuIdealProductBundle:Main:index }
+
+mail:
+  pattern: /mail/build/{title}
+  defaults: {_controller: CanalTPLieuIdealProductBundle:Main:mail }
+
+send:
+  pattern: /mail/send
+  defaults: {_controller: CanalTPLieuIdealProductBundle:Main:send }
+
+contact:
+  pattern: /votre-avis
+  defaults: {_controller: CanalTPLieuIdealProductBundle:Main:contact }
+
+legals:
+  pattern: /mentions-legales
+  defaults: {_controller: CanalTPLieuIdealProductBundle:Main:legals }
